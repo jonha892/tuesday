@@ -28,8 +28,12 @@ export class DeviceRepository {
     return data;
   }
 
-  private fetch(page: number, pageSize: number = 25): Device[] {
+  public fetch(page: number, pageSize: number = 25): Device[] {
     const start = Math.max(0, (page - 1) * pageSize);
     return this.data.slice(start, start + pageSize);
+  }
+
+  public fetchAllDevices(): Device[] {
+    return [...this.data];
   }
 }

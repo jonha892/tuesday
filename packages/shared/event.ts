@@ -5,11 +5,13 @@ export const deviceSchema = z.object({
   location: z.string().nonempty(),
   type: z.string().nonempty(), // unklar welche werte
   device_health: z.string().nonempty(), //unklar welche werte
-  last_used: z.string().nonempty(), // unklar ob format einheitlich
+  last_used: z.string(),
   price: z.coerce.number().nonnegative(),
   color: z
     .string()
     .regex(/^#[0-9a-fA-F]{6}$/, "Color must be a valid hex color code"),
 });
+
+export const devicesSchema = z.array(deviceSchema);
 
 export type Device = z.infer<typeof deviceSchema>;

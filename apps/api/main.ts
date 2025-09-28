@@ -18,6 +18,16 @@ router
   .get("/api/hello", (ctx) => {
     ctx.response.type = "json";
     ctx.response.body = { message: "Hallo von Deno + Oak" };
+  })
+  .get("/api/devices", (ctx) => {
+    const devices: Device[] = deviceRepository.fetch(0);
+    ctx.response.type = "json";
+    ctx.response.body = devices;
+  })
+  .get("/api/devices/all", (ctx) => {
+    const devices: Device[] = deviceRepository.fetchAllDevices();
+    ctx.response.type = "json";
+    ctx.response.body = devices;
   });
 
 const app = new Application();
