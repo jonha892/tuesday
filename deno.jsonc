@@ -1,0 +1,22 @@
+{
+  // Deno 2 empfohlen. Aktiviert Materialisierung von node_modules für Tools wie Vite.
+  "nodeModulesDir": "auto",
+  "workspace": ["apps/*", "packages/*"],
+  "fmt": { "useTabs": false, "indentWidth": 2 },
+  "lint": { "rules": { "tags": ["recommended"] } },
+  "imports": {
+    // Monorepo-Shortcut für geteilte Utilities/Typen
+    "shared/": "./packages/shared/",
+    "zod": "npm:zod@^4.1.11"
+  },
+  "tasks": {
+    // Beide Services parallel starten (Backend :8000, Frontend :5173)
+    "dev": "deno task -q -c apps/api/deno.json dev & deno task -q -c apps/frontend/deno.json dev",
+    // Einzeln
+    "api": "deno task -c apps/api/deno.json dev",
+    "frontend": "deno task -c apps/frontend/deno.json dev",
+    // Lint/Format
+    "fmt": "deno fmt",
+    "lint": "deno lint"
+  }
+}

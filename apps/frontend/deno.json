@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "jsxImportSourceTypes": "@types/react"
+  },
+  "tasks": {
+    "dev": "deno run -A npm:vite",
+    "build": "deno run -A npm:vite build",
+    "preview": "deno run -A npm:vite preview"
+  },
+  "imports": {
+    "@ant-design/icons": "npm:@ant-design/icons@^6.0.2",
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.5",
+    "@types/react": "npm:@types/react@^19.1.13",
+    "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^5.0.3",
+    "@vitejs/plugin-react-swc": "npm:@vitejs/plugin-react-swc@^4.1.0",
+    "antd": "npm:antd@^5.27.4",
+    "react": "npm:react@^19.1.1",
+    "react-dom": "npm:react-dom@^19.1.1",
+    "react-router-dom": "npm:react-router-dom@^7.9.1",
+    "vite": "npm:vite@^7.1.7"
+  }
+}
